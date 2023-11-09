@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from .models import uploadfile
+from utils.embedding import makeEmbedding
 
 # Create your views here.
 def index(request):
@@ -17,5 +18,5 @@ def send_files(request):
 def makeEmbed(request):
     if request.method == "POST":
         print("ready for the embedding")
-
-        return HttpResponse("ready for embedding")
+        response=  makeEmbedding()
+        return HttpResponse(response)
